@@ -14,6 +14,11 @@ config/name="Godot-breakout-from-scratch"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true
