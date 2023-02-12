@@ -19,12 +19,11 @@ func _on_wall_bottom_body_entered(body):
 
 
 
-
-
 func reset_ball():
 	$Ball.position = Vector2(640,360)
 	get_tree().call_group('BallGroup', 'restart_ball')
-	$Player.position.x = 650 # pixels from left sid eof screen
+	##get_tree().call_group('Blocks', 'fnDuplicate_Blocks')
+	$Player.position.x = 650 # pixels from left side of screen
 	##$Opponent.position.x = 1280 - 35 # pixels from left sid eof screen
 	
 	

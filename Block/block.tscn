@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://t7re7iamyp1r"]
+
+[ext_resource type="Script" path="res://Block/block.gd" id="1_wxrj2"]
+[ext_resource type="Texture2D" uid="uid://dp5mroa4ioy6l" path="res://Assets/Paddle.png" id="2_3da8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ilmxq"]
+size = Vector2(31, 120)
+
+[node name="Block" type="CharacterBody2D"]
+position = Vector2(90, 76)
+script = ExtResource("1_wxrj2")
+
+[node name="BlockOneSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_3da8j")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(151, 25)
+texture = ExtResource("2_3da8j")
+metadata/_edit_group_ = true
+
+[node name="BlockOneCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ilmxq")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(151, 25)
+shape = SubResource("RectangleShape2D_ilmxq")
+metadata/_edit_group_ = true

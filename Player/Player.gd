@@ -8,6 +8,9 @@ func _ready():
 	
 	self.position.y = 700
 	self.position.x = 650
+	self.scale.y = 2.5 # for some reason y  makes the paddle wider. not sure why
+	## self.scale.x = 1 # if i make x-axis 1 with y as 2.5 it seems like a normal size. 
+	## so just use y to stretch the paddle. 
 	#var player = get_node("Sprite2D")
 	#get_node("Sprite2D")
 	#player.rotation.x = 770

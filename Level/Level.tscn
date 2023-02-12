@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c22esiae48yo6"]
+[gd_scene load_steps=9 format=3 uid="uid://c22esiae48yo6"]
 
 [ext_resource type="PackedScene" uid="uid://mnni68mmsqid" path="res://Player/Player.tscn" id="1_1bxnf"]
 [ext_resource type="Script" path="res://Level/Level.gd" id="1_e80mm"]
 [ext_resource type="PackedScene" uid="uid://cophn1yd2h8x1" path="res://Ball/ball.tscn" id="2_2do2n"]
 [ext_resource type="Script" path="res://Ball/Ball.gd" id="4_a45ec"]
+[ext_resource type="PackedScene" uid="uid://t7re7iamyp1r" path="res://Block/block.tscn" id="5_qdrdh"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(1280, 8)
@@ -26,7 +27,7 @@ color = Color(0.0784314, 0.129412, 0.14902, 1)
 [node name="Player" parent="." instance=ExtResource("1_1bxnf")]
 
 [node name="WallTop" type="StaticBody2D" parent="."]
-position = Vector2(4, -1)
+position = Vector2(3, -2)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WallTop"]
@@ -61,5 +62,8 @@ metadata/_edit_group_ = true
 position = Vector2(-2, -350)
 shape = SubResource("RectangleShape2D_1gmos")
 metadata/_edit_group_ = true
+
+[node name="Block" parent="." instance=ExtResource("5_qdrdh")]
+position = Vector2(33, 73)
 
 [connection signal="body_entered" from="WallBottom" to="." method="_on_wall_bottom_body_entered"]
