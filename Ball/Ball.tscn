@@ -1,18 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx368g07t1cf2"]
+[gd_scene load_steps=4 format=3 uid="uid://cophn1yd2h8x1"]
 
-[ext_resource type="Texture2D" uid="uid://dqtiungylawf0" path="res://Assets/Ball.png" id="1_hyrhq"]
-[ext_resource type="Script" path="res://Ball/Ball.gd" id="1_nsxan"]
+[ext_resource type="Texture2D" uid="uid://dqtiungylawf0" path="res://Assets/Ball.png" id="1_cytmp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xa3yb"]
-radius = 16.0312
+[sub_resource type="GDScript" id="GDScript_vi35b"]
+script/source = "extends CharacterBody2D
 
-[node name="Ball" type="CharacterBody2D" groups=["BallGroup"]]
-script = ExtResource("1_nsxan")
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	# Handle Jump.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis(\"ui_left\", \"ui_right\")
+	if direction:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+
+	move_and_slide()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_03jaa"]
+radius = 16.0
+
+[node name="Ball" type="CharacterBody2D"]
+script = SubResource("GDScript_vi35b")
+metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_hyrhq")
+texture = ExtResource("1_cytmp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_xa3yb")
+shape = SubResource("CircleShape2D_03jaa")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
