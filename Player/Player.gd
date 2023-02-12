@@ -5,7 +5,9 @@ extends CharacterBody2D
 # var a = 2
 # var b = "text"
 func _ready():
-	self.position.y = 650
+	
+	self.position.y = 700
+	self.position.x = 650
 	#var player = get_node("Sprite2D")
 	#get_node("Sprite2D")
 	#player.rotation.x = 770
