@@ -26,6 +26,7 @@ func _physics_process(delta):
 
 func stop_ball():
 	SPEED = 0
+	queue_free() # not sure if necessary, should delete ball once outside bounds
 	
 ##	move_and_slide()
 

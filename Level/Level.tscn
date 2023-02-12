@@ -50,7 +50,7 @@ position = Vector2(642, -4.5)
 shape = SubResource("1")
 metadata/_edit_group_ = true
 
-[node name="Ball" parent="." groups=["BallGroup"] instance=ExtResource("2_2do2n")]
+[node name="Ball" parent="." instance=ExtResource("2_2do2n")]
 position = Vector2(360, 74)
 script = ExtResource("4_a45ec")
 
