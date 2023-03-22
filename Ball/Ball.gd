@@ -9,6 +9,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var ball_velocity = Vector2.ZERO
 
+
+
 func _ready():
 	randomize()
 	# horizontal speed
@@ -18,7 +20,9 @@ func _ready():
 
 
 func _physics_process(delta):
-	
+	#var oSetRotationCol = self.get_node(Block.blockon)
+	#oSetRotationCol.remove_child(BlockOneSprite)
+	# move_and_collide(ball_velocity).get_collider().
 	var collision_object = move_and_collide(ball_velocity * SPEED * delta)
 	if collision_object:
 		ball_velocity = ball_velocity.bounce(collision_object.get_normal() )

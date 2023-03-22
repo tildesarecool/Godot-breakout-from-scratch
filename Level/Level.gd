@@ -1,10 +1,19 @@
 extends Node
 
+# I was looking for htis int he documentation and then stumbled upon it 
+# https://docs.godotengine.org/en/4.0/getting_started/first_2d_game/03.coding_the_player.html
+# func _ready():
+#    screen_size = get_viewport_rect().size
+
 var PlayerScore = 0
 
+#var viewableWidth = get_viewport().size.length()
+
 func _on_wall_bottom_body_entered(body):
+	
 	#pass
 	reset_ball()
+	#print_debug(viewableWidth)
 
 
 
@@ -16,8 +25,6 @@ func _on_wall_bottom_body_entered(body):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 ##func _process(delta):
 ##	pass
-
-
 
 func reset_ball():
 	$Ball.position = Vector2(640,360)

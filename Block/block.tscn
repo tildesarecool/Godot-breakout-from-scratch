@@ -14,16 +14,19 @@ script = ExtResource("1_wxrj2")
 texture = ExtResource("2_3da8j")
 metadata/_edit_group_ = true
 
+[node name="BlockOneCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ilmxq")
+metadata/_edit_group_ = true
+
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(151, 25)
 texture = ExtResource("2_3da8j")
 metadata/_edit_group_ = true
 
-[node name="BlockOneCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_ilmxq")
-metadata/_edit_group_ = true
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(151, 25)
 shape = SubResource("RectangleShape2D_ilmxq")
+debug_color = Color(0.886275, 0.184314, 0.682353, 0.419608)
 metadata/_edit_group_ = true
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
